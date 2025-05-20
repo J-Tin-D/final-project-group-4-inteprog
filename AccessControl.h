@@ -4,9 +4,7 @@ using namespace std;
 bool adminControl = false;
 bool validUser = false;
 
-
-
-
+//Access Control
 class AccessStrategy{
 	public: 
 		virtual void displayAccess(const string& username) = 0;
