@@ -5,7 +5,7 @@
 #include <string>
 using namespace std;
 
-//HOW TO MERGE?
+
 
 
 bool isDigitsPrice(const string& str) {
@@ -167,6 +167,26 @@ class Inventory{
             return instance;
         }
         
+        bool isValidID(string input){
+        	
+        	if(count==0){
+        		cout<<"Error: Nothing on inventory yet."<<endl;
+        		return false;
+			}
+			
+			for(int i=0;i<count;i++){
+				if(input == items[i]->getID()){
+					return true;
+				}
+			}
+			cout<<"ID Not Found"<<endl;
+			return false;
+        	
+		}
+        
+        
+        
+        
         int getCount(){
             return count;
         }
@@ -210,6 +230,8 @@ class Inventory{
         void deleteItem(string input){
             string key = input;    
             
+           
+            
             if(count == 0){
                 cout<<"No Items On Inventory"<<endl;
                 return;
@@ -230,7 +252,13 @@ class Inventory{
         	int quant;
         	string name;
             string key = input;
-            if(count == 0){
+           
+            
+            if(isValidID(input) == false){
+            	return;
+			}
+			
+			 if(count == 0){
                 cout<<"No Items on inventory"<<endl;
                 return;
             }
@@ -259,6 +287,11 @@ class Inventory{
         }
         
         void addQuantity(string input){
+        	
+        	if(isValidID(input)==false){
+        		return;
+			}
+        	
         	int num;
             string key = input;
             string input_;
@@ -516,6 +549,12 @@ void deleteConfirm(){
     string input_;
     cout<<"Enter ID of Item to Remove: ";
     getline(cin,input);
+    
+     if(inventory.isValidID(input)==false){
+            	return;
+			}
+			
+			
     cout<<"Are you Sure you want to Delete This Item?[Y/N]: ";
     getline(cin,input_);
     input_ = capital(input_);
