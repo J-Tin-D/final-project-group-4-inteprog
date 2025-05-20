@@ -5,6 +5,8 @@ bool adminControl = false;
 bool validUser = false;
 
 
+
+
 class AccessStrategy{
 	public: 
 		virtual void displayAccess(const string& username) = 0;

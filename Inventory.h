@@ -6,6 +6,8 @@
 using namespace std;
 
 
+
+
 bool isDigitsPrice(const string& str) {
     for (char ch : str) {
         if (isalpha(ch) && ch != '.') {
