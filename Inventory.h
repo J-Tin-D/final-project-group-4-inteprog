@@ -5,7 +5,7 @@
 #include <string>
 using namespace std;
 
-
+//HOW TO MERGE?
 
 
 bool isDigitsPrice(const string& str) {
