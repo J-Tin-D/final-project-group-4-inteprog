@@ -4,7 +4,7 @@
 #include "AccessControl.h"
 #include "Inventory.h"
 using namespace std;
-
+//new
 
 bool menu(){
 		while(!validUser){
@@ -16,7 +16,7 @@ string input;
 	cout<<"=================================="<<endl;
 	cout<<"[0]\tExit Program"<<endl;
 	cout<<"[1]\tView Inventory"<<endl;
-	cout<<"[2]\tUpdate Item Quantities"<<endl;
+	cout<<"[2]\tAdd Item Quantities"<<endl;
 	cout<<"[3]\tRemove Item Quantities"<<endl;
 	if(adminControl == true){
 	cout<<"[4]\tAdd New Items"<<endl;
