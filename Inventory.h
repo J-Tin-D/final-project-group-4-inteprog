@@ -146,6 +146,8 @@ class Items{
         void setPrice(double p) { price = p; }
         void setType(string t) { type = t; }
         void setCategory(string c) { category = c; }
+        void setID(string id_) { id = id_;}
+        void setName(string x) { name = x;}
         //NEW CODE END 
 
         void setQuantity(int x){
@@ -237,10 +239,19 @@ class Inventory{
                 return;
             }
             
-            for(int i = 0;i<count;i++){
-                if(key == items[i]->getID()){
-                    delete items[i];
+            for(int j = 0;j<count;j++){
+                if(key == items[j]->getID()){
                     count-=1;
+                    
+                    for(int i=j;i<count;i++){
+					
+                    	items[i]->setCategory(items[i+1]->getCategory());
+                    	items[i]->setID(items[i+1]->getID());
+                    	items[i]->setName(items[i+1]->getName());
+                    	items[i]->setPrice(items[i+1]->getPrice());
+                    	items[i]->setQuantity(items[i+1]->getQuantity());
+                    	items[i]->setType(items[i+1]->getType());
+                    }
                     cout<<"Item Successfully Deleted."<<endl;
                     return;
                 }
